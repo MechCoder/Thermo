@@ -1,0 +1,12 @@
+This is a module I attempted to create , which would give you other parameters provided you give one of temperature and pressure and nay other property.
+
+It basically seraches through database files and gives the required output by interpolation and double interpolation.
+
+This is how my module is to be used.
+
+import thermo
+a = thermo.State(T = 300 , h = 2354)
+print a.getQuality()
+0.7183539797807206
+print a.getEnthalpy()
+2354.0
