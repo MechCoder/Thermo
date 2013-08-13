@@ -1,8 +1,19 @@
-This is a module I attempted to create , which would give you other parameters provided you give one of temperature and pressure and nay other property.
+This is a module which can be used as an automated databook. Basically if one of temperature or presssure is given, the other properties are given.
+This is how it works.
 
-It basically seraches through database files and gives the required output by interpolation and double interpolation.
+There are three .dat files which I had scraped from this website, http://www.ohio.edu/mechanical/thermo/property_tables/H2O/H2O_TempSat1.html. A big thanks to them.
+1] super.dat which gives Superheated Data. It stores the data as a dictionary, with the pressure as keys, and a list of lists as values.
+2] ptables.dat which gives Saturated Data with pressure, temp, hf, hg, sf, sg, uf, ug as key values.
+3] temptables.dat which gives Saturated Data with pressure, temp, hf, hg, sf, sg, uf, ug as key values.
 
-This is how my module is to be used.
+By iterating, interpolating, and double interpolating, the different values can be found. One needs to create an instance of the State class and the following functions
+a] getQuality gives the quality
+a] getEnthalpy gives the enthalpy
+a] getEntropy gives the entropy
+a] getPressure gives the pressure
+a] getTemp gives the temperature.
+
+A simple example.
 
 import thermo
 a = thermo.State(T = 300 , h = 2354)
@@ -10,3 +21,7 @@ print a.getQuality()
 0.7183539797807206
 print a.getEnthalpy()
 2354.0
+
+I believe this can be extended for a number of thermodynamic processes. Anyone interested feel free to submit a pull request against the repo. Any bugs? Please mail me at manojkumarsivaraj334@gmail.com
+
+Cheers!
